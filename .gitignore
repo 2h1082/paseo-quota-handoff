@@ -1,0 +1,12 @@
+node_modules/
+coverage/
+dist/
+*.tgz
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+.scratch/
+.paseo/
+Docs/Handoffs/

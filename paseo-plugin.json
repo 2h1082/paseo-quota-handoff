@@ -1,0 +1,9 @@
+{
+  "id": "paseo-quota-handoff",
+  "name": "Paseo Quota Handoff",
+  "description": "Optional five-hour and weekly account quota monitoring with independently configurable handoff thresholds",
+  "media": [],
+  "requirements": {
+    "paseo": ">=0.15.3"
+  }
+}
