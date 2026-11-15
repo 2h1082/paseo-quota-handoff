@@ -3,13 +3,30 @@ name: Plugin CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'Docs/**'
+      - '**/*.md'
   pull_request:
+    branches: [main]
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+    paths-ignore:
+      - 'Docs/**'
+      - '**/*.md'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: paseo-plugin-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   plugin:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
